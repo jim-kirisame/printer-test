@@ -43,6 +43,8 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -100,8 +102,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,11 +149,12 @@
             // textBox5
             // 
             this.textBox5.AcceptsTab = true;
-            this.textBox5.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox5.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox5.Location = new System.Drawing.Point(10, 410);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox5.Size = new System.Drawing.Size(443, 94);
             this.textBox5.TabIndex = 4;
             this.textBox5.Text = "欢迎使用热敏打印机DEMO测试软件！\r\n";
@@ -260,6 +261,25 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "打印设置";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(392, 157);
+            this.textBox9.MaxLength = 3;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(39, 21);
+            this.textBox9.TabIndex = 63;
+            this.textBox9.Text = "128";
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(321, 160);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 62;
+            this.label14.Text = "黑白阈值：";
             // 
             // label2
             // 
@@ -890,25 +910,6 @@
             this.comboBox8.Size = new System.Drawing.Size(101, 20);
             this.comboBox8.TabIndex = 39;
             this.comboBox8.Text = "对齐";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(392, 157);
-            this.textBox9.MaxLength = 3;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(39, 21);
-            this.textBox9.TabIndex = 63;
-            this.textBox9.Text = "128";
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged_1);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(321, 160);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 12);
-            this.label14.TabIndex = 62;
-            this.label14.Text = "黑白阈值：";
             // 
             // Form1
             // 
