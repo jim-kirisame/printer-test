@@ -20,7 +20,6 @@ namespace PrinterTest
         Thread thread;
         delegate void SetTextCallback(string text);
 
-        private string FileName;
         /// <summary>
         /// 纸张宽度
         /// </summary>
@@ -76,12 +75,10 @@ namespace PrinterTest
         public Form1()
         {
             InitializeComponent();
-            thread = new Thread(SendROMData);
-            comboBox7.SelectedIndex = 3;//字体：中文16*16
-            comboBox8.SelectedIndex = 0;//对齐方式:左对齐
-            comboBox4.SelectedIndex = 2;//打印条形码默认值EAN8
-            comboBox5.SelectedIndex = 2;//打印二维码默认值QR-CODE
-            comboBox6.SelectedIndex = 0;//默认扩散方法：Atkinson
+            fontBox.SelectedIndex = 3;//字体：中文16*16
+            alignBox.SelectedIndex = 0;//对齐方式:左对齐
+            barCodeTypeBox.SelectedIndex = 2;//打印条形码默认值EAN8
+            diffusionMethod.SelectedIndex = 0;//默认扩散方法：Atkinson
             label7.Text = "";
         }
 
@@ -141,13 +138,10 @@ namespace PrinterTest
         /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (uint.TryParse(textBox1.Text, out uint result))
+            if (uint.TryParse(letterSpacing.Text, out uint result) && result > 0)
             {
-                if (result > 0)
-                {
-                    byte[] sendsuf = command.SetWordSpacing(result);
-                    WriteCommand(sendsuf);
-                }
+                byte[] sendsuf = command.SetWordSpacing(result);
+                WriteCommand(sendsuf);
             }
         }
 
@@ -158,7 +152,7 @@ namespace PrinterTest
         /// <param name="e"></param>
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (uint.TryParse(textBox2.Text, out uint result))
+            if (uint.TryParse(lineSpacing.Text, out uint result))
             {
                 byte[] sendsuf = command.SetLineSpacing(result);
                 WriteCommand(sendsuf);
@@ -167,19 +161,19 @@ namespace PrinterTest
 
         private void UpdatePaperParam()
         {
-            int.TryParse(textBox19.Text, out topmargin);
-            int.TryParse(textBox20.Text, out bottommargin);
-            int.TryParse(textBox3.Text, out leftmargin);
-            int.TryParse(textBox4.Text, out rightmargin);
-            int.TryParse(textBox14.Text, out PaperWidth);
-            int.TryParse(textBox17.Text, out PaperHeight);
+            int.TryParse(marginTop.Text, out topmargin);
+            int.TryParse(marginBottom.Text, out bottommargin);
+            int.TryParse(marginLeft.Text, out leftmargin);
+            int.TryParse(marginRight.Text, out rightmargin);
+            int.TryParse(paperWidthBox.Text, out PaperWidth);
+            int.TryParse(paperHeightBox.Text, out PaperHeight);
 
             if (PaperWidth >= 385) PaperWidth = 384; //Why?
             if (PaperHeight >= 600) PaperHeight = 599; //Why?
 
             PrintWidth = PaperWidth - leftmargin - rightmargin;
             PrintHeight = PaperHeight - topmargin - bottommargin;
-            checkBox6.Text = "打印区域：" + PrintWidth + "*" + PrintHeight;
+            drawBorder.Text = "打印区域：" + PrintWidth + "*" + PrintHeight;
         }
 
         /// <summary>
@@ -201,7 +195,7 @@ namespace PrinterTest
         {
             UpdatePaperParam();
 
-            if (uint.TryParse(textBox17.Text, out uint result))
+            if (uint.TryParse(paperHeightBox.Text, out uint result))
             {
                 byte[] sendsuf = command.SetLeftPadding(result);
                 WriteCommand(sendsuf);
@@ -215,7 +209,7 @@ namespace PrinterTest
         /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            byte[] sendsuf = command.SetBold(checkBox1.Checked);
+            byte[] sendsuf = command.SetBold(BoldCheckBox.Checked);
             WriteCommand(sendsuf);
         }
 
@@ -238,7 +232,7 @@ namespace PrinterTest
         /// <param name="e"></param>
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            byte[] sendsuf = command.SetUnderline((byte)checkBox2.CheckState);
+            byte[] sendsuf = command.SetUnderline((byte)underlineCheckbox.CheckState);
             WriteCommand(sendsuf);
         }
 
@@ -249,7 +243,7 @@ namespace PrinterTest
         /// <param name="e"></param>
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            byte[] sendsuf = command.SetReverse(checkBox3.Checked);
+            byte[] sendsuf = command.SetReverse(reverseCheckBox.Checked);
             WriteCommand(sendsuf);
         }
 
@@ -264,7 +258,7 @@ namespace PrinterTest
             byte temp = 0;
             if (radioButtonUnicode.Checked)
             {
-                sendsuf = Encoding.Unicode.GetBytes(textBox5.Text);
+                sendsuf = Encoding.Unicode.GetBytes(inputBox.Text);
                 for (int i = 0; i < sendsuf.Length; i += 2)
                 {
                     temp = sendsuf[i];
@@ -274,12 +268,12 @@ namespace PrinterTest
             }
             else if (radioButtonBIG5.Checked)
             {
-                sendsuf = Encoding.GetEncoding("big5").GetBytes(textBox5.Text);
+                sendsuf = Encoding.GetEncoding("big5").GetBytes(inputBox.Text);
             }
             else
             {
                 // 默认编码
-                sendsuf = Encoding.Default.GetBytes(textBox5.Text);
+                sendsuf = Encoding.Default.GetBytes(inputBox.Text);
             }
             WriteCommand(sendsuf);
         }
@@ -303,11 +297,11 @@ namespace PrinterTest
         private void button4_Click(object sender, EventArgs e)
         {
             FontDialog fontDialog = new FontDialog();
-            fontDialog.Font = textBox5.Font;
+            fontDialog.Font = inputBox.Font;
             DialogResult dr = fontDialog.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                textBox5.Font = fontDialog.Font;
+                inputBox.Font = fontDialog.Font;
             }
         }
 
@@ -407,9 +401,9 @@ namespace PrinterTest
         /// <summary>
         /// 发送刷写数据
         /// </summary>
-        private void SendROMData()
+        private void SendROMData(string filename)
         {
-            FileStream fs = new FileStream(FileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
             Byte[] data = new Byte[fs.Length];
             fs.Read(data, 0, data.Length);
 
@@ -429,8 +423,13 @@ namespace PrinterTest
             WriteCommand(data);
             SetText("写入成功,请断电");
 
-            thread.Abort();
+            Thread.Abort();
         }
+        private void SendROMData(object filename)
+        {
+            SendROMData(filename as string);
+        }
+
 
         /// <summary>
         /// 刷新字库
@@ -441,16 +440,16 @@ namespace PrinterTest
         {
             if (serialPort1.IsOpen)
             {
-                if (!thread.IsAlive)
+                if (!Thread.IsAlive)
                 {
                     OpenFileDialog openFileDialog1 = new OpenFileDialog();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
-                        FileName = openFileDialog1.FileName;
-                        //Selectedchar = (byte)comboBox2.SelectedIndex;                        
-                        thread = new Thread(SendROMData);
-                        thread.IsBackground = true;
-                        thread.Start();
+                        var filename = openFileDialog1.FileName;
+                        
+                        Thread = new Thread(new ParameterizedThreadStart(SendROMData));
+                        Thread.IsBackground = true;
+                        Thread.Start(filename);
                     }
                 }
             }
@@ -461,13 +460,16 @@ namespace PrinterTest
         /// </summary>
         private void PrintCodeBar()
         {
-            byte[] data = Encoding.Default.GetBytes(textBox5.Text.Normalize());
-            byte[] sendsuf = command.PrintBarCode((byte)comboBox4.SelectedIndex, data);
+            byte[] data = Encoding.Default.GetBytes(inputBox.Text.Normalize());
+            byte[] sendsuf = command.PrintBarCode((byte)barCodeTypeBox.SelectedIndex, data);
             WriteCommand(sendsuf);
         }
 
-        byte[] bytes = { 0 };
+        public Thread Thread { get => thread; set => thread = value; }
 
+        /// <summary>
+        /// 选择并处理图片
+        /// </summary>
         private void SelectPic()//选择图片
         {
             OpenFileDialog opd = new OpenFileDialog();
@@ -475,13 +477,23 @@ namespace PrinterTest
             opd.InitialDirectory = "";
             opd.FilterIndex = 1;
             opd.Filter = "图片文件(*.bmp,*.jpg,*.jpeg,*.gif,*.pn)|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
+
             if (opd.ShowDialog() == DialogResult.OK)
             {
-                textBox8.Text = opd.FileName;
+                string path = opd.FileName;
+                filePathBox.Text = path;
+                LoadImage(path);
             }
+        }
 
+        /// <summary>
+        /// 载入指定图像并处理
+        /// </summary>
+        /// <param name="path"></param>
+        private void LoadImage(string path)
+        {
             PrintWidth = PaperWidth - leftmargin - rightmargin;
-            Bitmap source = new Bitmap(textBox8.Text);
+            Bitmap source = new Bitmap(path);
             Bitmap bmp = ImageHelper.MakeThumbnail(source, PrintWidth, source.Height, "W");
             PrintWidth = bmp.Width;
             PrintHeight = bmp.Height;
@@ -491,15 +503,25 @@ namespace PrinterTest
             DrawToPicbox(bmp);
         }
 
+        /// <summary>
+        /// 将图片处理到画板
+        /// </summary>
+        /// <param name="bmp"></param>
         private void DrawToPicbox(Bitmap bmp)
         {
             DrawToPicbox(bmp, PaperWidth, PaperHeight);
         }
 
+        /// <summary>
+        /// 将图片处理并画到画板
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         private void DrawToPicbox(Bitmap bmp, int width, int height)
         {
             orgBitmap = bmp;
-            var bwBmp =  ImageHelper.DitteringImage(errorDiffusion, bmp);
+            var bwBmp = ImageHelper.DitteringImage(errorDiffusion, bmp);
 
             finalBitmap = new Bitmap(width, height);
             Graphics myGraphics = this.CreateGraphics();
@@ -514,7 +536,7 @@ namespace PrinterTest
         /// </summary>
         private void GenerateQRCode()
         {
-            Bitmap bmp = BarCode.DrawQRCode(textBox5.Text, PrintWidth, comboBox2.SelectedIndex);
+            Bitmap bmp = BarCode.DrawQRCode(inputBox.Text, PrintWidth, errorLevelComboBox.SelectedIndex);
             PrintHeight = PrintWidth;
             PaperHeight = PrintHeight + topmargin + bottommargin;
             DrawToPicbox(bmp);
@@ -525,17 +547,17 @@ namespace PrinterTest
         /// </summary>
         private void GenerateCodeBar()
         {
-            string content = textBox5.Text.Normalize();
+            string content = inputBox.Text.Normalize();
             BarcodeFormat[] bfl = { BarcodeFormat.UPC_A, BarcodeFormat.UPC_E, BarcodeFormat.EAN_8, BarcodeFormat.EAN_13, BarcodeFormat.CODE_39, BarcodeFormat.ITF, BarcodeFormat.CODABAR, BarcodeFormat.CODE_93, BarcodeFormat.CODE_128 };
-            Bitmap bmp = BarCode.DrawBarCode(content, bfl[comboBox4.SelectedIndex], PrintWidth, 30);
-            PrintHeight = bmp.Height + (int)textBox5.Font.Size + 8;
+            Bitmap bmp = BarCode.DrawBarCode(content, bfl[barCodeTypeBox.SelectedIndex], PrintWidth, 30);
+            PrintHeight = bmp.Height + (int)inputBox.Font.Size + 8;
             PaperHeight = PrintHeight + topmargin + bottommargin;
             DrawToPicbox(bmp);
 
             Graphics myGraphics = this.CreateGraphics();
             myGraphics = Graphics.FromImage(finalBitmap);
-            myGraphics.DrawString(content, new Font(textBox5.Font.Name.ToString(), textBox5.Font.Size, textBox5.Font.Style),
-                new SolidBrush(Color.Black), new RectangleF((PrintWidth - content.Length * textBox5.Font.Size) / 2 + leftmargin, bmp.Height, PrintWidth, 20));
+            myGraphics.DrawString(content, new Font(inputBox.Font.Name.ToString(), inputBox.Font.Size, inputBox.Font.Style),
+                new SolidBrush(Color.Black), new RectangleF((PrintWidth - content.Length * inputBox.Font.Size) / 2 + leftmargin, bmp.Height, PrintWidth, 20));
             pictureBox1.Image = finalBitmap;
         }
 
@@ -546,13 +568,15 @@ namespace PrinterTest
         {
             Bitmap g = new Bitmap(PrintWidth, 500);
             finalBitmap = g;
-            string content = textBox5.Text;
+            string content = inputBox.Text;
             Graphics myGraphics2 = this.CreateGraphics();
             myGraphics2 = Graphics.FromImage(finalBitmap);
             myGraphics2.FillRectangle(new SolidBrush(Color.White), 0, 0, PaperWidth, PaperHeight);//打印纸背景
-            myGraphics2.DrawString(content, new Font(textBox5.Font.Name.ToString(), textBox5.Font.Size, textBox5.Font.Style),
+            myGraphics2.DrawString(content, new Font(inputBox.Font.Name.ToString(), inputBox.Font.Size, inputBox.Font.Style),
                 new SolidBrush(Color.Black), new RectangleF(leftmargin + 5, topmargin + 5, PrintWidth - 10, PrintHeight - 10));
-            if (checkBox6.Checked)
+
+            // 绘制边框
+            if (drawBorder.Checked)
             {
                 Pen pen = new Pen(new SolidBrush(Color.Red), 2);
                 myGraphics2.DrawRectangle(pen, new Rectangle(leftmargin + 1, topmargin + 1, PrintWidth - 2, PrintHeight - 2));
@@ -684,16 +708,16 @@ namespace PrinterTest
 
         private void TextAlignChanged(object sender, EventArgs e)
         {
-            if (comboBox8.SelectedIndex > 0)
+            if (alignBox.SelectedIndex > 0)
             {
-                byte[] sendsuf = command.SetAlign((byte)comboBox8.SelectedIndex);
+                byte[] sendsuf = command.SetAlign((byte)alignBox.SelectedIndex);
                 WriteCommand(sendsuf);
             }
         }
 
         private void PrintPosChanged(object sender, EventArgs e)
         {
-            if (uint.TryParse(textBox12.Text, out uint result))
+            if (uint.TryParse(paddingLeft.Text, out uint result))
             {
                 byte[] sendsuf = command.SetPrintPos(result);
                 WriteCommand(sendsuf);
@@ -703,7 +727,7 @@ namespace PrinterTest
         private void SetPrinterFont(object sender, EventArgs e)
         {
             byte[] fontId = { 0x00, 0x01, 0x04, 0x10, 0x11, 0x12, 0x13 };
-            byte[] sendsuf = command.SetFont(fontId[comboBox7.SelectedIndex]);
+            byte[] sendsuf = command.SetFont(fontId[fontBox.SelectedIndex]);
             WriteCommand(sendsuf);
         }
 
@@ -714,7 +738,7 @@ namespace PrinterTest
 
         private void textBox9_TextChanged_1(object sender, EventArgs e)
         {
-            int.TryParse(textBox9.Text, out GrayThreshold);
+            int.TryParse(grayThresholdBox.Text, out GrayThreshold);
             ImageHelper.GrayThreshold = (uint)GrayThreshold;
             // 重新生成图像
             ReGenerate_Click(null, null);
@@ -722,7 +746,7 @@ namespace PrinterTest
 
         private void DiffusionMethodChanged(object sender, EventArgs e)
         {
-            switch(comboBox6.SelectedIndex)
+            switch (diffusionMethod.SelectedIndex)
             {
                 case 0:
                     errorDiffusion = new AtkinsonDithering();
@@ -763,5 +787,6 @@ namespace PrinterTest
         {
             DrawToPicbox(orgBitmap);
         }
+
     }
 }

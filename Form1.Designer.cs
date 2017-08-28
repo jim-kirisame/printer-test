@@ -33,38 +33,38 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.inputBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.BoldCheckBox = new System.Windows.Forms.CheckBox();
+            this.underlineCheckbox = new System.Windows.Forms.CheckBox();
+            this.reverseCheckBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.grayThresholdBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lineSpacing = new System.Windows.Forms.TextBox();
+            this.letterSpacing = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.paddingLeft = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.drawBorder = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.marginBottom = new System.Windows.Forms.TextBox();
+            this.marginRight = new System.Windows.Forms.TextBox();
+            this.marginTop = new System.Windows.Forms.TextBox();
+            this.marginLeft = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.paperHeightBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.paperWidthBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -86,25 +86,24 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.ReGenerate = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.diffusionMethod = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.errorLevelComboBox = new System.Windows.Forms.ComboBox();
             this.button15 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.barCodeTypeBox = new System.Windows.Forms.ComboBox();
             this.button16 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.filePathBox = new System.Windows.Forms.TextBox();
             this.button18 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radioButtonBIG5 = new System.Windows.Forms.RadioButton();
             this.radioButtonUnicode = new System.Windows.Forms.RadioButton();
             this.radioButtonBGK = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.fontBox = new System.Windows.Forms.ComboBox();
+            this.alignBox = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -150,18 +149,18 @@
             // 
             this.serialPort1.BaudRate = 115200;
             // 
-            // textBox5
+            // inputBox
             // 
-            this.textBox5.AcceptsTab = true;
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox5.Font = new System.Drawing.Font("宋体", 12F);
-            this.textBox5.Location = new System.Drawing.Point(4, 433);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(443, 94);
-            this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "欢迎使用热敏打印机DEMO测试软件！\r\n";
+            this.inputBox.AcceptsTab = true;
+            this.inputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputBox.Font = new System.Drawing.Font("宋体", 12F);
+            this.inputBox.Location = new System.Drawing.Point(4, 433);
+            this.inputBox.Multiline = true;
+            this.inputBox.Name = "inputBox";
+            this.inputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.inputBox.Size = new System.Drawing.Size(443, 94);
+            this.inputBox.TabIndex = 4;
+            this.inputBox.Text = "欢迎使用热敏打印机DEMO测试软件！\r\n";
             // 
             // button2
             // 
@@ -183,39 +182,39 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // checkBox1
+            // BoldCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 66);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "粗体";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.BoldCheckBox.AutoSize = true;
+            this.BoldCheckBox.Location = new System.Drawing.Point(5, 66);
+            this.BoldCheckBox.Name = "BoldCheckBox";
+            this.BoldCheckBox.Size = new System.Drawing.Size(48, 16);
+            this.BoldCheckBox.TabIndex = 10;
+            this.BoldCheckBox.Text = "粗体";
+            this.BoldCheckBox.UseVisualStyleBackColor = true;
+            this.BoldCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // underlineCheckbox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(5, 110);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(60, 16);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "下划线";
-            this.checkBox2.ThreeState = true;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.underlineCheckbox.AutoSize = true;
+            this.underlineCheckbox.Location = new System.Drawing.Point(5, 110);
+            this.underlineCheckbox.Name = "underlineCheckbox";
+            this.underlineCheckbox.Size = new System.Drawing.Size(60, 16);
+            this.underlineCheckbox.TabIndex = 11;
+            this.underlineCheckbox.Text = "下划线";
+            this.underlineCheckbox.ThreeState = true;
+            this.underlineCheckbox.UseVisualStyleBackColor = true;
+            this.underlineCheckbox.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // checkBox3
+            // reverseCheckBox
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(5, 88);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(48, 16);
-            this.checkBox3.TabIndex = 12;
-            this.checkBox3.Text = "反白";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.reverseCheckBox.AutoSize = true;
+            this.reverseCheckBox.Location = new System.Drawing.Point(5, 88);
+            this.reverseCheckBox.Name = "reverseCheckBox";
+            this.reverseCheckBox.Size = new System.Drawing.Size(48, 16);
+            this.reverseCheckBox.TabIndex = 12;
+            this.reverseCheckBox.Text = "反白";
+            this.reverseCheckBox.UseVisualStyleBackColor = true;
+            this.reverseCheckBox.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // label10
             // 
@@ -248,14 +247,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.grayThresholdBox);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.lineSpacing);
+            this.groupBox1.Controls.Add(this.letterSpacing);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.paddingLeft);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -266,15 +265,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "打印设置";
             // 
-            // textBox9
+            // grayThresholdBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(392, 157);
-            this.textBox9.MaxLength = 3;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(39, 21);
-            this.textBox9.TabIndex = 63;
-            this.textBox9.Text = "128";
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged_1);
+            this.grayThresholdBox.Location = new System.Drawing.Point(392, 157);
+            this.grayThresholdBox.MaxLength = 3;
+            this.grayThresholdBox.Name = "grayThresholdBox";
+            this.grayThresholdBox.Size = new System.Drawing.Size(39, 21);
+            this.grayThresholdBox.TabIndex = 63;
+            this.grayThresholdBox.Text = "128";
+            this.grayThresholdBox.TextChanged += new System.EventHandler(this.textBox9_TextChanged_1);
             // 
             // label14
             // 
@@ -294,25 +293,25 @@
             this.label2.TabIndex = 61;
             this.label2.Text = "绝对左边距：";
             // 
-            // textBox2
+            // lineSpacing
             // 
-            this.textBox2.Location = new System.Drawing.Point(272, 157);
-            this.textBox2.MaxLength = 3;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(39, 21);
-            this.textBox2.TabIndex = 59;
-            this.textBox2.Text = "0";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.lineSpacing.Location = new System.Drawing.Point(272, 157);
+            this.lineSpacing.MaxLength = 3;
+            this.lineSpacing.Name = "lineSpacing";
+            this.lineSpacing.Size = new System.Drawing.Size(39, 21);
+            this.lineSpacing.TabIndex = 59;
+            this.lineSpacing.Text = "0";
+            this.lineSpacing.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox1
+            // letterSpacing
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 157);
-            this.textBox1.MaxLength = 3;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(39, 21);
-            this.textBox1.TabIndex = 58;
-            this.textBox1.Text = "0";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.letterSpacing.Location = new System.Drawing.Point(182, 157);
+            this.letterSpacing.MaxLength = 3;
+            this.letterSpacing.Name = "letterSpacing";
+            this.letterSpacing.Size = new System.Drawing.Size(39, 21);
+            this.letterSpacing.TabIndex = 58;
+            this.letterSpacing.Text = "0";
+            this.letterSpacing.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -332,31 +331,31 @@
             this.label3.TabIndex = 56;
             this.label3.Text = "字间距：";
             // 
-            // textBox12
+            // paddingLeft
             // 
-            this.textBox12.Location = new System.Drawing.Point(89, 157);
-            this.textBox12.MaxLength = 3;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(39, 21);
-            this.textBox12.TabIndex = 60;
-            this.textBox12.Text = "0";
-            this.textBox12.TextChanged += new System.EventHandler(this.PrintPosChanged);
+            this.paddingLeft.Location = new System.Drawing.Point(89, 157);
+            this.paddingLeft.MaxLength = 3;
+            this.paddingLeft.Name = "paddingLeft";
+            this.paddingLeft.Size = new System.Drawing.Size(39, 21);
+            this.paddingLeft.TabIndex = 60;
+            this.paddingLeft.Text = "0";
+            this.paddingLeft.TextChanged += new System.EventHandler(this.PrintPosChanged);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.checkBox6);
+            this.groupBox6.Controls.Add(this.drawBorder);
             this.groupBox6.Controls.Add(this.label13);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.textBox20);
-            this.groupBox6.Controls.Add(this.textBox4);
-            this.groupBox6.Controls.Add(this.textBox19);
-            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.marginBottom);
+            this.groupBox6.Controls.Add(this.marginRight);
+            this.groupBox6.Controls.Add(this.marginTop);
+            this.groupBox6.Controls.Add(this.marginLeft);
             this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.textBox17);
+            this.groupBox6.Controls.Add(this.paperHeightBox);
             this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.textBox14);
+            this.groupBox6.Controls.Add(this.paperWidthBox);
             this.groupBox6.Location = new System.Drawing.Point(10, 20);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(211, 132);
@@ -364,15 +363,15 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "纸张设置";
             // 
-            // checkBox6
+            // drawBorder
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(12, 104);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(72, 16);
-            this.checkBox6.TabIndex = 52;
-            this.checkBox6.Text = "显示边框";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.drawBorder.AutoSize = true;
+            this.drawBorder.Location = new System.Drawing.Point(12, 104);
+            this.drawBorder.Name = "drawBorder";
+            this.drawBorder.Size = new System.Drawing.Size(72, 16);
+            this.drawBorder.TabIndex = 52;
+            this.drawBorder.Text = "显示边框";
+            this.drawBorder.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -410,45 +409,45 @@
             this.label9.TabIndex = 49;
             this.label9.Text = "纸宽度：";
             // 
-            // textBox20
+            // marginBottom
             // 
-            this.textBox20.Location = new System.Drawing.Point(157, 47);
-            this.textBox20.MaxLength = 3;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(39, 21);
-            this.textBox20.TabIndex = 51;
-            this.textBox20.Text = "0";
-            this.textBox20.TextChanged += new System.EventHandler(this.BorderChangedEvent);
+            this.marginBottom.Location = new System.Drawing.Point(157, 47);
+            this.marginBottom.MaxLength = 3;
+            this.marginBottom.Name = "marginBottom";
+            this.marginBottom.Size = new System.Drawing.Size(39, 21);
+            this.marginBottom.TabIndex = 51;
+            this.marginBottom.Text = "0";
+            this.marginBottom.TextChanged += new System.EventHandler(this.BorderChangedEvent);
             // 
-            // textBox4
+            // marginRight
             // 
-            this.textBox4.Location = new System.Drawing.Point(157, 18);
-            this.textBox4.MaxLength = 3;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(39, 21);
-            this.textBox4.TabIndex = 17;
-            this.textBox4.Text = "0";
-            this.textBox4.TextChanged += new System.EventHandler(this.BorderChangedEvent);
+            this.marginRight.Location = new System.Drawing.Point(157, 18);
+            this.marginRight.MaxLength = 3;
+            this.marginRight.Name = "marginRight";
+            this.marginRight.Size = new System.Drawing.Size(39, 21);
+            this.marginRight.TabIndex = 17;
+            this.marginRight.Text = "0";
+            this.marginRight.TextChanged += new System.EventHandler(this.BorderChangedEvent);
             // 
-            // textBox19
+            // marginTop
             // 
-            this.textBox19.Location = new System.Drawing.Point(61, 47);
-            this.textBox19.MaxLength = 3;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(39, 21);
-            this.textBox19.TabIndex = 50;
-            this.textBox19.Text = "0";
-            this.textBox19.TextChanged += new System.EventHandler(this.BorderChangedEvent);
+            this.marginTop.Location = new System.Drawing.Point(61, 47);
+            this.marginTop.MaxLength = 3;
+            this.marginTop.Name = "marginTop";
+            this.marginTop.Size = new System.Drawing.Size(39, 21);
+            this.marginTop.TabIndex = 50;
+            this.marginTop.Text = "0";
+            this.marginTop.TextChanged += new System.EventHandler(this.BorderChangedEvent);
             // 
-            // textBox3
+            // marginLeft
             // 
-            this.textBox3.Location = new System.Drawing.Point(61, 18);
-            this.textBox3.MaxLength = 3;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(39, 21);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.Text = "0";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.marginLeft.Location = new System.Drawing.Point(61, 18);
+            this.marginLeft.MaxLength = 3;
+            this.marginLeft.Name = "marginLeft";
+            this.marginLeft.Size = new System.Drawing.Size(39, 21);
+            this.marginLeft.TabIndex = 16;
+            this.marginLeft.Text = "0";
+            this.marginLeft.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label5
             // 
@@ -459,15 +458,15 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "左边距：";
             // 
-            // textBox17
+            // paperHeightBox
             // 
-            this.textBox17.Location = new System.Drawing.Point(157, 75);
-            this.textBox17.MaxLength = 3;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(39, 21);
-            this.textBox17.TabIndex = 48;
-            this.textBox17.Text = "320";
-            this.textBox17.TextChanged += new System.EventHandler(this.BorderChangedEvent);
+            this.paperHeightBox.Location = new System.Drawing.Point(157, 75);
+            this.paperHeightBox.MaxLength = 3;
+            this.paperHeightBox.Name = "paperHeightBox";
+            this.paperHeightBox.Size = new System.Drawing.Size(39, 21);
+            this.paperHeightBox.TabIndex = 48;
+            this.paperHeightBox.Text = "320";
+            this.paperHeightBox.TextChanged += new System.EventHandler(this.BorderChangedEvent);
             // 
             // label6
             // 
@@ -478,15 +477,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "右边距：";
             // 
-            // textBox14
+            // paperWidthBox
             // 
-            this.textBox14.Location = new System.Drawing.Point(61, 75);
-            this.textBox14.MaxLength = 3;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(39, 21);
-            this.textBox14.TabIndex = 45;
-            this.textBox14.Text = "320";
-            this.textBox14.TextChanged += new System.EventHandler(this.BorderChangedEvent);
+            this.paperWidthBox.Location = new System.Drawing.Point(61, 75);
+            this.paperWidthBox.MaxLength = 3;
+            this.paperWidthBox.Name = "paperWidthBox";
+            this.paperWidthBox.Size = new System.Drawing.Size(39, 21);
+            this.paperWidthBox.TabIndex = 45;
+            this.paperWidthBox.Text = "320";
+            this.paperWidthBox.TextChanged += new System.EventHandler(this.BorderChangedEvent);
             // 
             // groupBox3
             // 
@@ -494,9 +493,9 @@
             this.groupBox3.Controls.Add(this.radioButton5);
             this.groupBox3.Controls.Add(this.radioButton4);
             this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.BoldCheckBox);
+            this.groupBox3.Controls.Add(this.underlineCheckbox);
+            this.groupBox3.Controls.Add(this.reverseCheckBox);
             this.groupBox3.Location = new System.Drawing.Point(317, 20);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(120, 132);
@@ -689,11 +688,11 @@
             // 
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.ReGenerate);
-            this.groupBox8.Controls.Add(this.comboBox6);
+            this.groupBox8.Controls.Add(this.diffusionMethod);
             this.groupBox8.Controls.Add(this.groupBox10);
             this.groupBox8.Controls.Add(this.groupBox9);
             this.groupBox8.Controls.Add(this.button13);
-            this.groupBox8.Controls.Add(this.textBox8);
+            this.groupBox8.Controls.Add(this.filePathBox);
             this.groupBox8.Location = new System.Drawing.Point(10, 241);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(317, 186);
@@ -720,10 +719,10 @@
             this.ReGenerate.UseVisualStyleBackColor = true;
             this.ReGenerate.Click += new System.EventHandler(this.ReGenerate_Click);
             // 
-            // comboBox6
+            // diffusionMethod
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.diffusionMethod.FormattingEnabled = true;
+            this.diffusionMethod.Items.AddRange(new object[] {
             "Atkinson",
             "Burkes",
             "Floyd-Steinberg",
@@ -734,17 +733,16 @@
             "SierraLite",
             "Stucki",
             "无"});
-            this.comboBox6.Location = new System.Drawing.Point(79, 156);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(131, 20);
-            this.comboBox6.TabIndex = 71;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.DiffusionMethodChanged);
+            this.diffusionMethod.Location = new System.Drawing.Point(79, 156);
+            this.diffusionMethod.Name = "diffusionMethod";
+            this.diffusionMethod.Size = new System.Drawing.Size(131, 20);
+            this.diffusionMethod.TabIndex = 71;
+            this.diffusionMethod.SelectedIndexChanged += new System.EventHandler(this.DiffusionMethodChanged);
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.comboBox2);
+            this.groupBox10.Controls.Add(this.errorLevelComboBox);
             this.groupBox10.Controls.Add(this.button15);
-            this.groupBox10.Controls.Add(this.comboBox5);
             this.groupBox10.Location = new System.Drawing.Point(167, 21);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(133, 100);
@@ -752,23 +750,23 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "二维码";
             // 
-            // comboBox2
+            // errorLevelComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.errorLevelComboBox.FormattingEnabled = true;
+            this.errorLevelComboBox.Items.AddRange(new object[] {
             "7%",
             "15%",
             "25%",
             "30%"});
-            this.comboBox2.Location = new System.Drawing.Point(16, 45);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 20);
-            this.comboBox2.TabIndex = 67;
-            this.comboBox2.Text = "纠错等级";
+            this.errorLevelComboBox.Location = new System.Drawing.Point(16, 22);
+            this.errorLevelComboBox.Name = "errorLevelComboBox";
+            this.errorLevelComboBox.Size = new System.Drawing.Size(100, 20);
+            this.errorLevelComboBox.TabIndex = 67;
+            this.errorLevelComboBox.Text = "纠错等级";
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(16, 71);
+            this.button15.Location = new System.Drawing.Point(16, 48);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(100, 23);
             this.button15.TabIndex = 66;
@@ -776,27 +774,10 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.GenerateQRCodeBtnClick);
             // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "115200",
-            "57600",
-            "38400",
-            "19200",
-            "9600",
-            "4800",
-            "2400"});
-            this.comboBox5.Location = new System.Drawing.Point(16, 20);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(100, 20);
-            this.comboBox5.TabIndex = 58;
-            this.comboBox5.Text = "115200";
-            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.button6);
-            this.groupBox9.Controls.Add(this.comboBox4);
+            this.groupBox9.Controls.Add(this.barCodeTypeBox);
             this.groupBox9.Controls.Add(this.button16);
             this.groupBox9.Location = new System.Drawing.Point(10, 21);
             this.groupBox9.Name = "groupBox9";
@@ -815,10 +796,10 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.PrintCodebarBtnClick);
             // 
-            // comboBox4
+            // barCodeTypeBox
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.barCodeTypeBox.FormattingEnabled = true;
+            this.barCodeTypeBox.Items.AddRange(new object[] {
             "UPCA",
             "UPC-E",
             "EAN8",
@@ -828,11 +809,11 @@
             "CODABAR",
             "CODE93",
             "CODE128"});
-            this.comboBox4.Location = new System.Drawing.Point(12, 20);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(120, 20);
-            this.comboBox4.TabIndex = 57;
-            this.comboBox4.Text = "条码类型";
+            this.barCodeTypeBox.Location = new System.Drawing.Point(12, 20);
+            this.barCodeTypeBox.Name = "barCodeTypeBox";
+            this.barCodeTypeBox.Size = new System.Drawing.Size(120, 20);
+            this.barCodeTypeBox.TabIndex = 57;
+            this.barCodeTypeBox.Text = "条码类型";
             // 
             // button16
             // 
@@ -854,12 +835,12 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // textBox8
+            // filePathBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(10, 128);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 21);
-            this.textBox8.TabIndex = 63;
+            this.filePathBox.Location = new System.Drawing.Point(10, 128);
+            this.filePathBox.Name = "filePathBox";
+            this.filePathBox.Size = new System.Drawing.Size(200, 21);
+            this.filePathBox.TabIndex = 63;
             // 
             // button18
             // 
@@ -917,8 +898,8 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.comboBox7);
-            this.groupBox7.Controls.Add(this.comboBox8);
+            this.groupBox7.Controls.Add(this.fontBox);
+            this.groupBox7.Controls.Add(this.alignBox);
             this.groupBox7.Location = new System.Drawing.Point(333, 333);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(120, 94);
@@ -926,10 +907,10 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "文本设置";
             // 
-            // comboBox7
+            // fontBox
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.fontBox.FormattingEnabled = true;
+            this.fontBox.Items.AddRange(new object[] {
             "SYSTEM 12x24",
             "SYSTEM 8x16",
             "romatic 26",
@@ -937,26 +918,26 @@
             "GBK 16*16",
             "BIG5 24x24",
             "BIG5 16x16"});
-            this.comboBox7.Location = new System.Drawing.Point(7, 18);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(101, 20);
-            this.comboBox7.TabIndex = 39;
-            this.comboBox7.Text = "字体";
-            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.SetPrinterFont);
+            this.fontBox.Location = new System.Drawing.Point(7, 18);
+            this.fontBox.Name = "fontBox";
+            this.fontBox.Size = new System.Drawing.Size(101, 20);
+            this.fontBox.TabIndex = 39;
+            this.fontBox.Text = "字体";
+            this.fontBox.SelectedIndexChanged += new System.EventHandler(this.SetPrinterFont);
             // 
-            // comboBox8
+            // alignBox
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.alignBox.FormattingEnabled = true;
+            this.alignBox.Items.AddRange(new object[] {
             "左对齐",
             "居中",
             "右对齐"});
-            this.comboBox8.Location = new System.Drawing.Point(7, 44);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(101, 20);
-            this.comboBox8.TabIndex = 39;
-            this.comboBox8.Text = "对齐";
-            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.TextAlignChanged);
+            this.alignBox.Location = new System.Drawing.Point(7, 44);
+            this.alignBox.Name = "alignBox";
+            this.alignBox.Size = new System.Drawing.Size(101, 20);
+            this.alignBox.TabIndex = 39;
+            this.alignBox.Text = "对齐";
+            this.alignBox.SelectedIndexChanged += new System.EventHandler(this.TextAlignChanged);
             // 
             // label16
             // 
@@ -984,7 +965,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.inputBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -1023,12 +1004,12 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox BoldCheckBox;
+        private System.Windows.Forms.CheckBox underlineCheckbox;
+        private System.Windows.Forms.CheckBox reverseCheckBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
@@ -1048,17 +1029,17 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.TextBox marginTop;
+        private System.Windows.Forms.TextBox paperHeightBox;
+        private System.Windows.Forms.TextBox paperWidthBox;
+        private System.Windows.Forms.TextBox marginBottom;
+        private System.Windows.Forms.CheckBox drawBorder;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox marginRight;
+        private System.Windows.Forms.TextBox marginLeft;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
@@ -1067,34 +1048,33 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox barCodeTypeBox;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox filePathBox;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox errorLevelComboBox;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton radioButtonBIG5;
         private System.Windows.Forms.RadioButton radioButtonUnicode;
         private System.Windows.Forms.RadioButton radioButtonBGK;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox fontBox;
+        private System.Windows.Forms.ComboBox alignBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lineSpacing;
+        private System.Windows.Forms.TextBox letterSpacing;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox paddingLeft;
+        private System.Windows.Forms.TextBox grayThresholdBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button ReGenerate;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox diffusionMethod;
         private System.Windows.Forms.Label label16;
     }
 }
