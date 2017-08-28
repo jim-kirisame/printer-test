@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PrinterTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("WwW.YlmF.CoM")]
+[assembly: AssemblyCompany("Lotlab")]
 [assembly: AssemblyProduct("PrinterTest")]
-[assembly: AssemblyCopyright("版权所有 (C) WwW.YlmF.CoM 2012")]
+[assembly: AssemblyCopyright("©2017 Lotlab, License under GPL v3")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.7.0.1")]
+[assembly: AssemblyFileVersion("1.7.0.1")]
