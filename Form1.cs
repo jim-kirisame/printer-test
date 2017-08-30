@@ -708,7 +708,7 @@ namespace PrinterTest
 
         private void TextAlignChanged(object sender, EventArgs e)
         {
-            if (alignBox.SelectedIndex > 0)
+            if (alignBox.SelectedIndex >= 0)
             {
                 byte[] sendsuf = command.SetAlign((byte)alignBox.SelectedIndex);
                 WriteCommand(sendsuf);
